@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Game Thời Trang</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #ffe6f2;
+    margin: 0;
+    padding: 20px;
+  }
+
+  h1 {
+    text-align: center;
+    color: #d63384;
+  }
+
+  .container {
+    display: flex;
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 20px;
+  }
+
+  .panel {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    width: 50%;
+    box-shadow: 0 0 10px #ffb3d9;
+  }
+
+  .avatar {
+    text-align: center;
+    font-size: 70px;
+  }
+
+  select, button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid #d63384;
+  }
+
+  .label {
+    font-weight: bold;
+    margin-top: 15px;
+    color: #b3005e;
+  }
+
+  .outfit-text {
+    margin-top: 10px;
+    color: #333;
+    font-size: 18px;
+  }
+</style>
+
+</head>
+<body>
+
+<h1>🎀 Game Lựa Chọn Thời Trang 🎀</h1>
+
+<div class="container">
+  
+  <!-- Nhân vật -->
+  <div class="panel">
+    <h2>👗 Nhân vật của bạn</h2>
+    <div class="avatar" id="avatar">
+      🧍‍♀️
+    </div>
+    <div class="outfit-text" id="outfitText">Hãy chọn trang phục!</div>
+  </div>
+
+  <!-- Bảng chọn đồ -->
+  <div class="panel">
+    <h2>👜 Chọn Trang Phục</h2>
+
+    <div class="label">Áo</div>
+    <select id="ao">
+      <option value="">-- Chọn áo --</option>
+      <option value="👚 Áo hồng">Áo hồng</option>
+      <option value="👕 Áo thun trắng">Áo thun trắng</option>
+      <option value="🧥 Áo khoác đen">Áo khoác đen</option>
+    </select>
+
+    <div class="label">Quần / Váy</div>
+    <select id="quan">
+      <option value="">-- Chọn quần/váy --</option>
+      <option value="👖 Quần jean">Quần jean</option>
+      <option value="🩳 Chân váy">Chân váy</option>
+      <option value="🩲 Quần họa tiết">Quần họa tiết</option>
+    </select>
+
+    <div class="label">Giày</div>
+    <select id="giay">
+      <option value="">-- Chọn giày --</option>
+      <option value="👠 Giày cao gót">Giày cao gót</option>
+      <option value="👟 Giày sneaker">Giày sneaker</option>
+      <option value="🥾 Bốt cá tính">Bốt cá tính</option>
+    </select>
+
+    <div class="label">Phụ kiện</div>
+    <select id="pk">
+      <option value="">-- Chọn phụ kiện --</option>
+      <option value="👜 Túi xách">Túi xách</option>
+      <option value="🕶 Kính mát">Kính mát</option>
+      <option value="📿 Vòng cổ">Vòng cổ</option>
+    </select>
+
+    <button onclick="updateOutfit()">Hoàn tất</button>
+  </div>
+
+</div>
+
+<script>
+  function updateOutfit() {
+    const ao = document.getElementById("ao").value;
+    const quan = document.getElementById("quan").value;
+    const giay = document.getElementById("giay").value;
+    const pk = document.getElementById("pk").value;
+
+    const outfitText = document.getElementById("outfitText");
+
+    outfitText.innerHTML = `
+      <b>Trang phục của bạn:</b><br>
+      ${ao || "Chưa chọn áo"}<br>
+      ${quan || "Chưa chọn quần/váy"}<br>
+      ${giay || "Chưa chọn giày"}<br>
+      ${pk || "Chưa chọn phụ kiện"}
+    `;
+  }
+</script>
+
+</body>
+</html>
